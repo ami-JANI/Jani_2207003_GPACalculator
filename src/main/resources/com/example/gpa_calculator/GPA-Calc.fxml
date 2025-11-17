@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.collections.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="960" prefWidth="540" stylesheets="@../css/style.css" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.gpa_calculator.SecondController">
+
+    <children>
+        <AnchorPane layoutX="-3.0" prefHeight="960.0" prefWidth="540.0">
+
+            <children>
+
+                <Label alignment="CENTER" contentDisplay="CENTER" layoutX="115.0" layoutY="48.0"
+                       prefHeight="75.0" prefWidth="310.0" style="-fx-background-color: lavender;"
+                       text="GPA Calculator" textAlignment="CENTER" underline="true">
+                    <font>
+                        <Font name="Century Gothic" size="26.0"/>
+                    </font>
+                </Label>
+
+                <TextField fx:id="courseTitleField" layoutX="175.0" layoutY="187.0" prefHeight="45.0"
+                           prefWidth="340.0" promptText="Enter course title"/>
+                <TextField fx:id="courseCodeField" layoutX="175.0" layoutY="291.0" prefHeight="45.0"
+                           prefWidth="340.0" promptText="Enter course code"/>
+                <TextField fx:id="courseCreditField" layoutX="175.0" layoutY="392.0" prefHeight="45.0"
+                           prefWidth="340.0" promptText="Enter course credit"/>
+                <TextField fx:id="teacher1Field" layoutX="175.0" layoutY="490.0" prefHeight="45.0"
+                           prefWidth="340.0" promptText="Enter teacher 1 name"/>
+                <TextField fx:id="teacher2Field" layoutX="175.0" layoutY="577.0" prefHeight="45.0"
+                           prefWidth="340.0" promptText="Enter teacher 2 name"/>
+
+                <Label layoutX="11.0" layoutY="187.0" prefHeight="45.0" prefWidth="125.0" text="Course Title:"
+                       textFill="#fcf7f7">
+                    <font>
+                        <Font size="22.0"/>
+                    </font>
+                </Label>
+                <Label layoutX="11.0" layoutY="291.0" prefHeight="45.0" prefWidth="138.0" text="Course Code:"
+                       textFill="WHITE">
+                    <font>
+                        <Font size="21.0"/>
+                    </font>
+                </Label>
+                <Label layoutX="11.0" layoutY="392.0" prefHeight="45.0" prefWidth="138.0" text="Course Credit:"
+                       textFill="WHITE">
+                    <font>
+                        <Font size="21.0"/>
+                    </font>
+                </Label>
+                <Label layoutX="14.0" layoutY="487.0" prefHeight="45.0" prefWidth="159.0" text="Course Teacher:"
+                       textFill="WHITE">
+                    <font>
+                        <Font size="21.0"/>
+                    </font>
+                </Label>
+                <Label layoutX="14.0" layoutY="577.0" prefHeight="45.0" prefWidth="159.0" text="Course Teacher:"
+                       textFill="WHITE">
+                    <font>
+                        <Font size="21.0"/>
+                    </font>
+                </Label>
+                <Label layoutX="14.0" layoutY="672.0" prefHeight="45.0" prefWidth="159.0" text="Grade:"
+                       textFill="WHITE">
+                    <font>
+                        <Font size="22.0"/>
+                    </font>
+                </Label>
+
+                <ComboBox fx:id="gradeCombo" layoutX="173" layoutY="672" prefHeight="45.0" prefWidth="340.0"
+                          promptText="Select your grade">
+                    <items>
+                        <FXCollections fx:factory="observableArrayList">
+                            <String fx:value="A+"/>
+                            <String fx:value="A"/>
+                            <String fx:value="A-"/>
+                            <String fx:value="B+"/>
+                            <String fx:value="B"/>
+                            <String fx:value="B-"/>
+                            <String fx:value="C+"/>
+                            <String fx:value="C"/>
+                            <String fx:value="D"/>
+                            <String fx:value="F"/>
+                        </FXCollections>
+                    </items>
+                </ComboBox>
+
+                <Button fx:id="nextCourseBtn" layoutX="159.0" layoutY="775.0" mnemonicParsing="false"
+                        onAction="#onNextCourse" prefHeight="45.0" prefWidth="222.0"
+                        style="-fx-background-color: ivory;" text="Next Course">
+                    <font>
+                        <Font name="Century Gothic" size="27.0"/>
+                    </font>
+                    <cursor>
+                        <Cursor fx:constant="HAND"/>
+                    </cursor>
+                </Button>
+
+                <Button fx:id="calculateBtn" layoutX="91.0" layoutY="857.0" mnemonicParsing="false"
+                        onAction="#onCalculate" prefHeight="75.0" prefWidth="358.0"
+                        style="-fx-background-color: snow;" text="Calculate GPA">
+                    <font>
+                        <Font size="27.0"/>
+                    </font>
+                    <cursor>
+                        <Cursor fx:constant="HAND"/>
+                    </cursor>
+                </Button>
+
+            </children>
+        </AnchorPane>
+    </children>
+
+    <stylesheets>
+        <String fx:value="/css/style.css"/>
+    </stylesheets>
+</AnchorPane>
+
+        <!--
+        Ei file-e GPA input scene er puro form design kora hoyese
+        User course title, code, credit, teacher, grade input kore next course add korte pare
+        Next Course button course list-e add kore, Calculate GPA button result page e niye jay
+        UI layout AnchorPane-based and fields SecondController er functions er sthe bind kore
+        -->
