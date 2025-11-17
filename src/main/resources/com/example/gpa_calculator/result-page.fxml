@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+
+<AnchorPane prefHeight="960" prefWidth="540" stylesheets="@../css/style.css" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.gpa_calculator.ResultController">
+
+    <children>
+
+        <TableView fx:id="courseTable" layoutY="20" opacity="0.84" prefHeight="550" prefWidth="540" style="-fx-background-color: silver;">
+
+            <columns>
+                <TableColumn fx:id="codeCol" prefWidth="95" text="Course Code" />
+                <TableColumn fx:id="titleCol" prefWidth="130" text="Course Title" />
+                <TableColumn fx:id="creditCol" prefWidth="57" text="Credit" />
+                <TableColumn fx:id="teacherCol" prefWidth="192" text="Teacher" />
+                <TableColumn fx:id="gradeCol" prefWidth="65" text="GPA" />
+            </columns>
+
+        </TableView>
+
+        <Label fx:id="resultLabel" alignment="CENTER" layoutX="20" layoutY="700" prefWidth="500" style="-fx-text-fill: white; -fx-font-size: 32px;" text="Your GPA will appear here" textAlignment="CENTER">
+
+            <font>
+                <Font name="Century Gothic Bold" size="32" />
+            </font>
+
+        </Label>
+
+    </children>
+</AnchorPane>
+        <!--
+                Ei file-e course information show korar jonno TableView use kora hoyese
+                Nicher label-e controller theke GPA calculate kore show kore
+                -->
