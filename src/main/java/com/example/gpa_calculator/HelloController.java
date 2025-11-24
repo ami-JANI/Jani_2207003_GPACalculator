@@ -14,10 +14,11 @@ public class HelloController {
     @FXML private TextField totalCreditField;
     @FXML private TextField textField;
 
-
     @FXML
     private void openSecondPage() {
         try {
+            DatabaseHelper.createTable();
+
             FXMLLoader loader = new FXMLLoader(getClass().getResource("GPA-Calc.fxml"));
             Parent root = loader.load();
 
@@ -37,6 +38,6 @@ public class HelloController {
     }
 }
 
-// Ei file e first page theke second page e scene change kore
-// user er input total credit read kore next controller e pathai
-// ar button press e page transition handle kore
+// Ei file e first page theke next scene load kore
+// DatabaseHelper diye table create kore
+// user er total credit niye SecondController e pathai
