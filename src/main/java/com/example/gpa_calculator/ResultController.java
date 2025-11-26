@@ -1,17 +1,15 @@
 package com.example.gpa_calculator;
 
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 
-import java.util.List;
-
 public class ResultController {
 
     @FXML private Label resultLabel;
-
     @FXML private TableView<Course> courseTable;
     @FXML private TableColumn<Course, String> codeCol;
     @FXML private TableColumn<Course, String> titleCol;
@@ -24,28 +22,33 @@ public class ResultController {
         codeCol.setCellValueFactory(new PropertyValueFactory<>("code"));
         titleCol.setCellValueFactory(new PropertyValueFactory<>("title"));
         creditCol.setCellValueFactory(new PropertyValueFactory<>("credit"));
-        teacherCol.setCellValueFactory(new PropertyValueFactory<>("teacherNames"));
+        teacherCol.setCellValueFactory(new PropertyValueFactory<>("teacher1")); // or combined
         gradeCol.setCellValueFactory(new PropertyValueFactory<>("grade"));
 
         resultLabel.setStyle("-fx-font-size: 26px; -fx-text-fill: white;");
         resultLabel.setWrapText(true);
+
+        loadCoursesFromDB();
     }
 
-    public void showResults(List<Course> courseList) {
-
-        courseTable.getItems().addAll(courseList);
+    private void loadCoursesFromDB() {
+        ObservableList<Course> courses = CourseCRUD.getAllCourses();
+        courseTable.setItems(courses);
 
         double totalGP = 0;
         int totalCredits = 0;
 
-        for (Course c : courseList) {
+        for (Course c : courses) {
             totalGP += c.getCredit() * gradeToPoint(c.getGrade());
             totalCredits += c.getCredit();
         }
 
-        double gpa = totalGP / totalCredits;
-
-        resultLabel.setText("Your GPA: " + String.format("%.2f", gpa));
+        if (totalCredits > 0) {
+            double gpa = totalGP / totalCredits;
+            resultLabel.setText("Your GPA: " + String.format("%.2f", gpa));
+        } else {
+            resultLabel.setText("No courses found.");
+        }
     }
 
     private double gradeToPoint(String g) {
@@ -63,5 +66,6 @@ public class ResultController {
         };
     }
 }
-// Ei file e result screen er table setup, course list table e show kore
-// sob course er grade + credit diye GPA calculate kore label e display kore
+
+// Ei file e result screen e DB theke sob course fetch kore,
+// TableView te show kore, GPA calculate kore resultLabel e display kore.

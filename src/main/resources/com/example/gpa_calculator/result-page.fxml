@@ -4,24 +4,28 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
+<!--
+                Ei file-e course information show korar jonno TableView use kora hoyese
+                Nicher label-e controller theke GPA calculate kore show kore
+                -->
 
 <AnchorPane prefHeight="960" prefWidth="540" stylesheets="@../css/style.css" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.gpa_calculator.ResultController">
 
     <children>
 
-        <TableView fx:id="courseTable" layoutY="20" opacity="0.84" prefHeight="550" prefWidth="540" style="-fx-background-color: silver;">
+        <TableView fx:id="courseTable" layoutX="-6.0" layoutY="494.0" opacity="0.84" prefHeight="458.0" prefWidth="540" style="-fx-background-color: silver;">
 
             <columns>
                 <TableColumn fx:id="codeCol" prefWidth="95" text="Course Code" />
                 <TableColumn fx:id="titleCol" prefWidth="130" text="Course Title" />
                 <TableColumn fx:id="creditCol" prefWidth="57" text="Credit" />
-                <TableColumn fx:id="teacherCol" prefWidth="192" text="Teacher" />
-                <TableColumn fx:id="gradeCol" prefWidth="65" text="GPA" />
+                <TableColumn fx:id="gradeCol" prefWidth="104.0" text="GPA" />
+                <TableColumn fx:id="teacherCol" prefWidth="153.0" text="Teacher" />
             </columns>
 
         </TableView>
 
-        <Label fx:id="resultLabel" alignment="CENTER" layoutX="20" layoutY="700" prefWidth="500" style="-fx-text-fill: white; -fx-font-size: 32px;" text="Your GPA will appear here" textAlignment="CENTER">
+        <Label fx:id="resultLabel" alignment="CENTER" layoutX="26.0" layoutY="45.0" prefWidth="500" style="-fx-text-fill: white; -fx-font-size: 32px;" text="Your GPA will appear here" textAlignment="CENTER">
 
             <font>
                 <Font name="Century Gothic Bold" size="32" />
@@ -31,7 +35,3 @@
 
     </children>
 </AnchorPane>
-        <!--
-                Ei file-e course information show korar jonno TableView use kora hoyese
-                Nicher label-e controller theke GPA calculate kore show kore
-                -->

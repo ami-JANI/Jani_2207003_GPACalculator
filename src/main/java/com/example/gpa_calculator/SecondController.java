@@ -9,8 +9,6 @@ import javafx.scene.control.*;
 import javafx.stage.Stage;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 
 public class SecondController {
 
@@ -26,19 +24,17 @@ public class SecondController {
     private int TOTAL_CREDIT;
     private static int CreditSum = 0;
 
-    private static final List<Course> courseList = new ArrayList<>();
-
     @FXML
     public void initialize() {
         gradeCombo.getItems().addAll("A+", "A", "A-", "B+", "B", "B-", "C+", "C", "D", "F");
         updateButtonStates();
     }
 
-    private void showSuccessAlert() {
+    private void showSuccessAlert(String message) {
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
-        alert.setTitle("Course Added");
+        alert.setTitle("Success");
         alert.setHeaderText(null);
-        alert.setContentText("Course added successfully!");
+        alert.setContentText(message);
         alert.showAndWait();
     }
 
@@ -61,7 +57,7 @@ public class SecondController {
             String creditText = courseCreditField.getText().trim();
 
             if (title.isEmpty() || code.isEmpty() || teacher1.isEmpty() || creditText.isEmpty() || grade == null) {
-                showErrorAlert("Error, try again!");
+                showErrorAlert("Please fill all fields and select a grade!");
                 return;
             }
 
@@ -77,34 +73,36 @@ public class SecondController {
                 return;
             }
 
-            courseList.add(new Course(title, code, credit, teacher1, teacher2, grade));
-            CreditSum += credit;
+            Course course = new Course(code, title, credit, teacher1, teacher2, grade);
+            CourseCRUD.insertCourse(course);
 
-            showSuccessAlert();
+
+            CreditSum += credit;
+            showSuccessAlert("Course added successfully!");
             clearFields();
             updateButtonStates();
 
         } catch (Exception e) {
-            showErrorAlert("Try again.");
+            showErrorAlert("Error while adding course. Try again.");
+            e.printStackTrace();
         }
     }
 
     @FXML
     private void onCalculate(ActionEvent event) {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/gpa_calculator/result-page.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/gpa_calculator/tabledb.fxml"));
             Parent root = loader.load();
-
-            ResultController ctrl = loader.getController();
-            ctrl.showResults(courseList);
 
             Stage stage = (Stage) nextCourseBtn.getScene().getWindow();
             stage.setScene(new Scene(root, 540, 960));
 
         } catch (IOException e) {
             e.printStackTrace();
+            showErrorAlert("Error opening table page.");
         }
     }
+
 
     private void clearFields() {
         courseTitleField.clear();
@@ -126,6 +124,7 @@ public class SecondController {
     }
 }
 
-// Ei file e user er course input newa, validation kora, course list e add kora,
-// success or error alert dekhano, collected credit check kora, button enable/disable,
-// and finally result page e data pathano
+// Ei file e user input theke course create kore validation kore,
+// Database e insert kore CourseCRUD use kore,
+// success/error alert dekha, credit sum check kore button enable/disable,
+// result page e navigate kore.

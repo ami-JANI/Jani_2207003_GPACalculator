@@ -2,17 +2,14 @@ package com.example.gpa_calculator;
 
 public class Course {
 
-    private int id;
     private String title;
-    private String code;
+    private String code;   // primary key
     private int credit;
     private String teacher1;
     private String teacher2;
     private String grade;
 
-    public Course(int id, String title, String code, int credit,
-                  String teacher1, String teacher2, String grade) {
-        this.id = id;
+    public Course(String title, String code, int credit, String teacher1, String teacher2, String grade) {
         this.title = title;
         this.code = code;
         this.credit = credit;
@@ -21,62 +18,22 @@ public class Course {
         this.grade = grade;
     }
 
-    public Course(String title, String code, int credit,
-                  String teacher1, String teacher2, String grade) {
-        this.title = title;
-        this.code = code;
-        this.credit = credit;
-        this.teacher1 = teacher1;
-        this.teacher2 = teacher2;
-        this.grade = grade;
-    }
+    // Getters & Setters
+    public String getTitle() { return title; }
+    public void setTitle(String title) { this.title = title; }
 
-    public int getId() {
-        return id;
-    }
-    public void setId(int id) {
-        this.id = id;
-    }
+    public String getCode() { return code; }
+    public void setCode(String code) { this.code = code; }
 
-    public String getTitle() {
-        return title;
-    }
+    public int getCredit() { return credit; }
+    public void setCredit(int credit) { this.credit = credit; }
 
-    public String getCode() {
-        return code;
-    }
+    public String getTeacher1() { return teacher1; }
+    public void setTeacher1(String teacher1) { this.teacher1 = teacher1; }
 
-    public int getCredit() {
-        return credit;
-    }
+    public String getTeacher2() { return teacher2; }
+    public void setTeacher2(String teacher2) { this.teacher2 = teacher2; }
 
-    public String getTeacher1() {
-        return teacher1;
-    }
-
-    public String getTeacher2() {
-        return teacher2;
-    }
-
-    public String getGrade() {
-        return grade;
-    }
-
-    public String getTeacherNames() {
-        if ((teacher1 == null || teacher1.isEmpty()) &&
-                (teacher2 == null || teacher2.isEmpty()))
-            return "";
-
-        if (teacher1 == null || teacher1.isEmpty())
-            return teacher2;
-
-        if (teacher2 == null || teacher2.isEmpty())
-            return teacher1;
-
-        return "1. " + teacher1 + "\n2. " + teacher2;
-    }
+    public String getGrade() { return grade; }
+    public void setGrade(String grade) { this.grade = grade; }
 }
-
-// Ei file e Course class er moddhe DB er jonno id, title, code, credit,
-// teacher1, teacher2, save hoy
-// Ekta constructor DB theke data load er jonno, arekta insert er jonno
