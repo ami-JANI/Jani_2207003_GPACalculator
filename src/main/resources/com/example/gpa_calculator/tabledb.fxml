@@ -2,55 +2,59 @@
 
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
-<?import javafx.geometry.Insets?>
 
-<AnchorPane xmlns:fx="http://javafx.com/fxml" fx:controller="com.example.gpa_calculator.TableDBController">
+<AnchorPane prefHeight="960" prefWidth="540" stylesheets="@../css/style.css" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.gpa_calculator.TableDBController">
     <children>
-        <VBox spacing="10" AnchorPane.topAnchor="10" AnchorPane.leftAnchor="10" AnchorPane.rightAnchor="10" AnchorPane.bottomAnchor="10">
+        <VBox spacing="10" AnchorPane.bottomAnchor="10" AnchorPane.leftAnchor="10" AnchorPane.rightAnchor="10" AnchorPane.topAnchor="10">
 
 
             <TableView fx:id="courseTable" prefHeight="400">
                 <columns>
-                    <TableColumn fx:id="codeCol" text="Code" prefWidth="80"/>
-                    <TableColumn fx:id="titleCol" text="Title" prefWidth="150"/>
-                    <TableColumn fx:id="creditCol" text="Credit" prefWidth="60"/>
-                    <TableColumn fx:id="teacher1Col" text="Teacher 1" prefWidth="100"/>
-                    <TableColumn fx:id="teacher2Col" text="Teacher 2" prefWidth="100"/>
-                    <TableColumn fx:id="gradeCol" text="Grade" prefWidth="60"/>
+                    <TableColumn fx:id="codeCol" prefWidth="158.0" text="Title" />
+                    <TableColumn fx:id="titleCol" prefWidth="72.0" text="Code" />
+                    <TableColumn fx:id="creditCol" prefWidth="60" text="Credit" />
+                    <TableColumn fx:id="teacher1Col" prefWidth="100" text="Teacher 1" />
+                    <TableColumn fx:id="teacher2Col" prefWidth="100" text="Teacher 2" />
+                    <TableColumn fx:id="gradeCol" prefWidth="60" text="Grade" />
                 </columns>
             </TableView>
 
 
             <GridPane hgap="10" vgap="10">
                 <columnConstraints>
-                    <ColumnConstraints percentWidth="30"/>
-                    <ColumnConstraints percentWidth="70"/>
+                    <ColumnConstraints percentWidth="30" />
+                    <ColumnConstraints percentWidth="70" />
                 </columnConstraints>
+                <Label text="Title:" textFill="WHITE" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+                <TextField fx:id="titleField" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                <Label text="Code:" textAlignment="RIGHT" textFill="WHITE" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+                <TextField fx:id="codeField" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+                <Label text="Credit:" textFill="WHITE" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+                <TextField fx:id="creditField" GridPane.columnIndex="1" GridPane.rowIndex="2" />
 
-                <Label text="Code:" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
-                <TextField fx:id="codeField" GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+                <Label text="Teacher 1:" textFill="WHITE" GridPane.columnIndex="0" GridPane.rowIndex="3" />
+                <TextField fx:id="teacher1Field" GridPane.columnIndex="1" GridPane.rowIndex="3" />
 
-                <Label text="Title:" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
-                <TextField fx:id="titleField" GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+                <Label text="Teacher 2:" textFill="WHITE" GridPane.columnIndex="0" GridPane.rowIndex="4" />
+                <TextField fx:id="teacher2Field" GridPane.columnIndex="1" GridPane.rowIndex="4" />
 
-                <Label text="Credit:" GridPane.rowIndex="2" GridPane.columnIndex="0"/>
-                <TextField fx:id="creditField" GridPane.rowIndex="2" GridPane.columnIndex="1"/>
-
-                <Label text="Teacher 1:" GridPane.rowIndex="3" GridPane.columnIndex="0"/>
-                <TextField fx:id="teacher1Field" GridPane.rowIndex="3" GridPane.columnIndex="1"/>
-
-                <Label text="Teacher 2:" GridPane.rowIndex="4" GridPane.columnIndex="0"/>
-                <TextField fx:id="teacher2Field" GridPane.rowIndex="4" GridPane.columnIndex="1"/>
-
-                <Label text="Grade:" GridPane.rowIndex="5" GridPane.columnIndex="0"/>
-                <TextField fx:id="gradeField" GridPane.rowIndex="5" GridPane.columnIndex="1"/>
+                <Label text="Grade:" textFill="WHITE" GridPane.columnIndex="0" GridPane.rowIndex="5" />
+                <TextField fx:id="gradeField" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+            <rowConstraints>
+               <RowConstraints />
+               <RowConstraints />
+               <RowConstraints />
+               <RowConstraints />
+               <RowConstraints />
+               <RowConstraints />
+            </rowConstraints>
             </GridPane>
 
 
             <HBox spacing="10">
-                <Button text="Add" onAction="#onAddClicked" fx:id="addBtn" />
-                <Button text="Update" onAction="#onUpdateClicked" fx:id="updateBtn"/>
-                <Button text="Delete" onAction="#onDeleteClicked" fx:id="deleteBtn"/>
+                <Button fx:id="addBtn" onAction="#onAddClicked" text="Add" />
+                <Button fx:id="updateBtn" onAction="#onUpdateClicked" text="Update" />
+                <Button fx:id="deleteBtn" onAction="#onDeleteClicked" text="Delete" />
             </HBox>
 
         </VBox>

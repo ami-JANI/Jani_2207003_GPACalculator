@@ -3,7 +3,7 @@ package com.example.gpa_calculator;
 public class Course {
 
     private String title;
-    private String code;   // primary key
+    private String code;
     private int credit;
     private String teacher1;
     private String teacher2;
@@ -18,7 +18,6 @@ public class Course {
         this.grade = grade;
     }
 
-    // Getters & Setters
     public String getTitle() { return title; }
     public void setTitle(String title) { this.title = title; }
 

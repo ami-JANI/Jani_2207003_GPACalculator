@@ -4,11 +4,6 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<!--
-                Ei file-e course information show korar jonno TableView use kora hoyese
-                Nicher label-e controller theke GPA calculate kore show kore
-                -->
-
 <AnchorPane prefHeight="960" prefWidth="540" stylesheets="@../css/style.css" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.gpa_calculator.ResultController">
 
     <children>
@@ -35,3 +30,9 @@
 
     </children>
 </AnchorPane>
+
+        <!--
+                        Ei file-e course information show korar jonno TableView use kora hoyese
+                        Nicher label-e controller theke GPA calculate kore show kore
+                        -->
+

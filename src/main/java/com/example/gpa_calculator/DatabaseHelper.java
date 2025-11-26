@@ -15,8 +15,8 @@ public class DatabaseHelper {
     public static void createTable() {
         String sql = """
                 CREATE TABLE IF NOT EXISTS course (
-                    title TEXT,
                     code TEXT PRIMARY KEY,
+                    title TEXT,
                     credit INTEGER,
                     grade TEXT,
                     teacher1 TEXT,
